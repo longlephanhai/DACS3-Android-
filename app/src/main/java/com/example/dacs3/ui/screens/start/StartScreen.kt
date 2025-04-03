@@ -7,6 +7,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.*
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
@@ -25,10 +26,19 @@ fun StartScreen(
     mainViewModel: MainViewModel
 ) {
     Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(Color.White) // Nền trắng toàn màn hình
+        modifier = Modifier.fillMaxSize()
     ) {
+        Image(
+            painter = painterResource(id = R.drawable.backgroud),
+            contentDescription = "Background Image",
+            contentScale = ContentScale.Crop,
+            modifier = Modifier.fillMaxSize()
+        )
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(Color.Black.copy(alpha = 0.5f))
+        )
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -36,7 +46,7 @@ fun StartScreen(
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            // Logo hoặc tên ứng dụng
+
             Text(
                 text = "Welcome to Long-Food",
                 fontSize = 30.sp,
@@ -46,14 +56,14 @@ fun StartScreen(
             Text(
                 text = "Nền tảng giao đồ ăn trực tuyến hàng đầu Việt Nam",
                 fontSize = 16.sp,
-                color = Color.Gray,
+                color = Color.White,
                 textAlign = TextAlign.Center,
                 modifier = Modifier.padding(top = 8.dp, bottom = 24.dp)
             )
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            // Nút đăng nhập Facebook
+
             SocialLoginButton(
                 text = "Đăng nhập với Facebook",
                 icon = R.drawable.facebook,
@@ -75,7 +85,6 @@ fun StartScreen(
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            // Nút đăng nhập với Email
             OutlinedButton(
                 onClick = { navController.navigate(Screen.Login.route)},
                 modifier = Modifier
@@ -84,14 +93,14 @@ fun StartScreen(
                 shape = RoundedCornerShape(50.dp),
                 border = BorderStroke(1.dp, Color.Gray)
             ) {
-                Text(text = "Đăng nhập với email", color = Color.Black, fontSize = 16.sp)
+                Text(text = "Đăng nhập với email", color = Color.White, fontSize = 16.sp)
             }
 
             Spacer(modifier = Modifier.height(24.dp))
 
-            // Điều hướng đăng ký
+
             Row {
-                Text(text = "Chưa có tài khoản?", color = Color.Gray, fontSize = 14.sp)
+                Text(text = "Chưa có tài khoản?", color = Color.White, fontSize = 14.sp)
                 Spacer(modifier = Modifier.width(4.dp))
                 Text(
                     text = "Đăng ký ngay",
