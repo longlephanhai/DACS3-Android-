@@ -1,6 +1,9 @@
 package com.example.dacs3.di
 
+import android.app.Application
+import android.content.Context
 import com.example.dacs3.repositories.Api
+import com.example.dacs3.repositories.ApiClient
 import com.example.dacs3.repositories.ApiImpl
 import com.example.dacs3.repositories.MainLog
 import com.example.dacs3.repositories.MainLogImpl
@@ -24,4 +27,5 @@ abstract class RepositoriesModule {
     abstract fun bindApi(
         api: ApiImpl
     ): Api
+
 }

@@ -1,14 +1,17 @@
 package com.example.dacs3.model
 
+import com.example.dacs3.common.enum.LoadStatus
+
 data class LoginRespon(
-    val statusCode: Int = -1,
-    val message: String = "",
-    val data: Data = Data("", User("", "", "", "")),
+    val statusCode: Int,
+    val message: String,
+    val data: Data,
 )
 
 data class LoginRequest(
-    val email: String,
-    val password: String
+    val email: String="",
+    val password: String="",
+    val status: LoadStatus = LoadStatus.Init()
 )
 
 data class Data(
