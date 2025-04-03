@@ -17,10 +17,13 @@ import com.example.dacs3.ui.screens.home.HomeScreen
 import com.example.dacs3.ui.screens.home.HomeViewModel
 import com.example.dacs3.ui.screens.login.LoginScreen
 import com.example.dacs3.ui.screens.login.LoginViewModel
+import com.example.dacs3.ui.screens.start.StartScreen
+import com.example.dacs3.ui.screens.start.StartViewModel
 
 sealed class Screen(val route: String) {
     object Login : Screen("login")
     object Home : Screen("home")
+    object Start : Screen("start")
 }
 
 @Composable
@@ -35,12 +38,15 @@ fun Navigation() {
             mainViewModel.setError("")
         }
     }
-    NavHost(navController = navController, startDestination = Screen.Login.route) {
+    NavHost(navController = navController, startDestination = Screen.Start.route) {
         composable(Screen.Login.route) {
             LoginScreen(navController, loginViewModel = hiltViewModel<LoginViewModel>(), mainViewModel)
         }
         composable(Screen.Home.route) {
-            HomeScreen(navController, viewModel = hiltViewModel<HomeViewModel>(), mainViewModel)
+            HomeScreen(navController, homeViewModel = hiltViewModel<HomeViewModel>(), mainViewModel)
+        }
+        composable(Screen.Start.route) {
+            StartScreen(navController, startViewModel = hiltViewModel<StartViewModel>(), mainViewModel)
         }
     }
 }

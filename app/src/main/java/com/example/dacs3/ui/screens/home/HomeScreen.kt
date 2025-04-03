@@ -10,7 +10,7 @@ import com.example.dacs3.MainViewModel
 @Composable
 fun HomeScreen(
     navController: NavController,
-    viewModel: HomeViewModel,
+    homeViewModel: HomeViewModel,
     mainViewModel: MainViewModel
 ) {
     Text("home")
