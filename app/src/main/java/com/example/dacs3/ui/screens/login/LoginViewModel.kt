@@ -71,8 +71,7 @@ class LoginViewModel @Inject constructor(
                         _uiState.value.copy(status = LoadStatus.Error(response.message))
                 }
             } catch (ex: Exception) {
-                _uiState.value =
-                    _uiState.value.copy(status = LoadStatus.Error(ex.message.toString()))
+                _uiState.value =_uiState.value.copy(status = LoadStatus.Error(ex.message.toString()))
                 Log.e("Response Error", "Error: $ex")
             }
         }

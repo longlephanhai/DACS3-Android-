@@ -40,13 +40,26 @@ fun Navigation() {
     }
     NavHost(navController = navController, startDestination = Screen.Start.route) {
         composable(Screen.Login.route) {
-            LoginScreen(navController, loginViewModel = hiltViewModel<LoginViewModel>(), mainViewModel)
+            LoginScreen(
+                navController,
+                loginViewModel = hiltViewModel<LoginViewModel>(),
+                mainViewModel
+            )
         }
         composable(Screen.Home.route) {
-            HomeScreen(navController, homeViewModel = hiltViewModel<HomeViewModel>(), mainViewModel)
+            HomeScreen(
+                navController,
+                homeViewModel = hiltViewModel<HomeViewModel>(),
+                mainViewModel,
+                hiltViewModel<LoginViewModel>()
+            )
         }
         composable(Screen.Start.route) {
-            StartScreen(navController, startViewModel = hiltViewModel<StartViewModel>(), mainViewModel)
+            StartScreen(
+                navController,
+                startViewModel = hiltViewModel<StartViewModel>(),
+                mainViewModel
+            )
         }
     }
 }
