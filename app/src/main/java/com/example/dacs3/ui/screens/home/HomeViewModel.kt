@@ -4,11 +4,9 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.dacs3.common.enum.LoadStatus
-import com.example.dacs3.model.CategoryResponse
 import com.example.dacs3.model.DataCategory
 import com.example.dacs3.repositories.Api
 import com.example.dacs3.repositories.MainLog
-import com.example.dacs3.ui.screens.login.LoginViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
